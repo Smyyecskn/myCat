@@ -5,9 +5,9 @@ export const initialState = {
 };
 
 export const reducer = (initialState, action) => {
-  switch (key) {
-    case value:
-      break;
+  switch (action.type) {
+    case "START":
+      return { ...initialState, loading: true };
 
     default:
       break;

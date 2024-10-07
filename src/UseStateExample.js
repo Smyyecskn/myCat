@@ -7,15 +7,18 @@ const UseStateExample = () => {
   const [loading, setLoading] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { loading, error, catImage } = state;
 
   const getCatImage = async () => {
     const url = "https://api.thecatapi.com/v1/images/search";
-
+    dispatch({ type: "START", payload: "" });
     // setLoading(true);
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setCatImage(data[0].url);
+      // setCatImage(data[0].url);
+      dispatch({ type: "START", payload: data[0].url });
+
       setError("");
     } catch (error) {
       setError("DATA CAN NOT BE FETCHED");
