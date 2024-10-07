@@ -9,7 +9,12 @@ export const reducer = (initialState, action) => {
     case "START":
       return { ...initialState, loading: true };
 
-    default:
-      break;
+    case "SUCCESS":
+      return {
+        ...initialState,
+        loading: false,
+        catImage: action.payload,
+        error: "",
+      };}
   }
 };

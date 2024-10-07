@@ -17,7 +17,7 @@ const UseStateExample = () => {
       const res = await fetch(url);
       const data = await res.json();
       // setCatImage(data[0].url);
-      dispatch({ type: "START", payload: data[0].url });
+      dispatch({ type: "SUCCESS", payload: data[0].url });
 
       setError("");
     } catch (error) {
