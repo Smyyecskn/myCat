@@ -2,9 +2,9 @@ import { useReducer, useState } from "react";
 import { reducer, initialState } from "./reducer";
 
 const UseStateExample = () => {
-  const [catImage, setCatImage] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [catImage, setCatImage] = useState("");
+  // const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, initialState);
   const { loading, error, catImage } = state;
@@ -19,13 +19,12 @@ const UseStateExample = () => {
       // setCatImage(data[0].url);
       dispatch({ type: "SUCCESS", payload: data[0].url });
 
-      setError("");
+      // setError("");
     } catch (error) {
-      setError("DATA CAN NOT BE FETCHED");
-      setCatImage("");
-      console.log(error);
-    } finally {
-      setLoading(false);
+      // setError("DATA CAN NOT BE FETCHED");
+      // setCatImage("");
+      // console.log(error);
+      dispatch({ type: "FAIL", payload: "DATA CAN NOT BE FETCHED" });
     }
   };
   console.log(error);

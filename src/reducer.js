@@ -15,6 +15,15 @@ export const reducer = (initialState, action) => {
         loading: false,
         catImage: action.payload,
         error: "",
-      };}
+      };
+    case "FAIL":
+      return {
+        ...initialState,
+        loading: false,
+        catImage: "",
+        error: action.payload,
+      };
+    default:
+      break;
   }
 };
